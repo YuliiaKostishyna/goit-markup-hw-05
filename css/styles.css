@@ -123,6 +123,7 @@ html {
   padding: 32px 0;
   display: block;
   position: relative;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-site::after {
   position: absolute;
@@ -142,11 +143,21 @@ html {
 .nav-site:focus {
   color: var(--prime-text-logo-color);
 }
+/* .nav-site:active {
+  color: var(--prime-text-logo-color);
+} */
 .nav-site:hover::after {
   opacity: 1;
 }
+/* .nav-site:active::after {
+   color: var(--prime-text-logo-color);
+} */
+
 .current {
   color: var(--prime-text-logo-color);
+}
+.current.nav-site::after {
+  opacity: 1;
 }
 .contact {
   color: var(--prime-text-color);
@@ -157,9 +168,9 @@ html {
   text-decoration: none;
   padding: 32px 0;
   display: flex;
-  position: relative;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.contact::after {
+/* .contact::after {
   position: absolute;
   left: 0;
   bottom: -1px;
@@ -171,14 +182,14 @@ html {
   opacity: 0;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+} */
 .contact:hover,
 .contact:focus {
   color: var(--prime-text-logo-color);
 }
-.contact:hover::after {
+/* .contact:hover::after {
   opacity: 1;
-}
+} */
 
 .contact:hover .icon-contact,
 .contact:focus .icon-contact {
@@ -226,12 +237,12 @@ html {
   padding: 10px 32px;
   border: none;
   border-radius: 4px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-button:hover,
 .hero-button:focus {
   background-color: var(--button-bgc-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .visually-hidden {
@@ -389,6 +400,7 @@ html {
 } */
 .color-link {
   fill: var(--social-link-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .team-link {
   display: flex;
@@ -396,12 +408,13 @@ html {
   align-items: center;
   width: 100%;
   height: 100%;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .team-link:hover,
 .team-link:focus {
   background-color: var(--prime-text-logo-color);
-  border-radius: 50%;
   fill: var(--footer-text-logo-color);
 }
 .team-link:hover .color-link,
@@ -446,7 +459,7 @@ html {
   height: 100%;
   border-radius: 4px;
   border: 1px solid var(--social-link-color);
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client-link:hover,
 .client-link:focus {
@@ -527,7 +540,8 @@ footer .color-link {
   cursor: pointer;
   border: none;
   padding: 6px 22px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-nav:hover,
 .button-nav:focus {
@@ -539,7 +553,8 @@ footer .color-link {
 .link-text {
   text-decoration: none;
   display: block;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .product-name {
   color: var(--text-nav-color);
@@ -567,13 +582,12 @@ footer .color-link {
   gap: 30px;
 }
 .products-items {
-  max-width: 370px;
-  flex-basis: calc((100%-60px) / 3);
+  width: 370px;
+  flex-basis: calc((100% - 60px) / 3);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link-text:hover,
 .link-text:focus {
-  border: 1px solid var(--border-cards-product);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
@@ -623,7 +637,8 @@ footer .color-link {
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.2);
   transform: scale(1);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .is-hidden {
   opacity: 0;
@@ -638,7 +653,7 @@ footer .color-link {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 .modal-close-button {
   display: flex;
@@ -648,8 +663,8 @@ footer .color-link {
   border-radius: 50%;
   width: 30px;
   height: 30px;
- margin: 8px 8px auto auto;
- cursor: pointer;
+  margin: 8px 8px auto auto;
+  cursor: pointer;
 }
 body.modal-open {
   overflow: hidden;
